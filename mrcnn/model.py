@@ -1229,14 +1229,14 @@ def mrcnn_mask_edge_loss_graph(y_pred, y_true, edge_filters, smoothing_predictio
     :return: loss
     """
     # sobel kernels
-    sobel_x_kernel = tf.reshape(tf.constant([[1, 2, 1],
-                                             [0, 0, 0],
-                                             [-1, -2, -1]], dtype=tf.float32),
-                                shape=[3, 3, 1, 1], name='sobel_x_kernel')
-    sobel_y_kernel = tf.reshape(tf.constant([[1, 0, -1],
-                                             [2, 0, -2],
-                                             [1, 0, -1]], dtype=tf.float32),
-                                shape=[3, 3, 1, 1], name='sobel_y_kernel')
+    # sobel_x_kernel = tf.reshape(tf.constant([[1, 2, 1],
+    #                                          [0, 0, 0],
+    #                                          [-1, -2, -1]], dtype=tf.float32),
+    #                             shape=[3, 3, 1, 1], name='sobel_x_kernel')
+    # sobel_y_kernel = tf.reshape(tf.constant([[1, 0, -1],
+    #                                          [2, 0, -2],
+    #                                          [1, 0, -1]], dtype=tf.float32),
+    #                             shape=[3, 3, 1, 1], name='sobel_y_kernel')
 
     # prewitt kernels
     prewitt_x_kernel = tf.reshape(tf.constant([[1, 0, -1],
@@ -1248,29 +1248,29 @@ def mrcnn_mask_edge_loss_graph(y_pred, y_true, edge_filters, smoothing_predictio
                                              [-1, -1, -1]], dtype=tf.float32),
                                 shape=[3, 3, 1, 1], name='prewitt_y_kernel')
 
-    # prewitt kernels
-    kayyali_senw_kernel = tf.reshape(tf.constant([[6, 0, -6],
-                                             [0, 0, -0],
-                                             [-6, 0, 6]], dtype=tf.float32),
-                                shape=[3, 3, 1, 1], name='kayyali_senw_kernel')
-    kayyali_nesw_kernel = tf.reshape(tf.constant([[-6, 0, 6],
-                                             [0, 0, 0],
-                                             [6, 0, -6]], dtype=tf.float32),
-                                shape=[3, 3, 1, 1], name='kayyali_nesw_kernel')
+    # # prewitt kernels
+    # kayyali_senw_kernel = tf.reshape(tf.constant([[6, 0, -6],
+    #                                          [0, 0, -0],
+    #                                          [-6, 0, 6]], dtype=tf.float32),
+    #                             shape=[3, 3, 1, 1], name='kayyali_senw_kernel')
+    # kayyali_nesw_kernel = tf.reshape(tf.constant([[-6, 0, 6],
+    #                                          [0, 0, 0],
+    #                                          [6, 0, -6]], dtype=tf.float32),
+    #                             shape=[3, 3, 1, 1], name='kayyali_nesw_kernel')
 
-    # roberts kernels
-    roberts_x_kernel = tf.reshape(tf.constant([[1, 0],
-                                              [0, -1]], dtype=tf.float32),
-                                shape=[2, 2, 1, 1], name='roberts_x_kernel')
-    roberts_y_kernel = tf.reshape(tf.constant([[0, -1],
-                                               [1, 0]], dtype=tf.float32),
-                                shape=[2, 2, 1, 1], name='roberts_y_kernel')
+    # # roberts kernels
+    # roberts_x_kernel = tf.reshape(tf.constant([[1, 0],
+    #                                           [0, -1]], dtype=tf.float32),
+    #                             shape=[2, 2, 1, 1], name='roberts_x_kernel')
+    # roberts_y_kernel = tf.reshape(tf.constant([[0, -1],
+    #                                            [1, 0]], dtype=tf.float32),
+    #                             shape=[2, 2, 1, 1], name='roberts_y_kernel')
 
     # laplace kernel
-    laplacian_kernel = tf.reshape(tf.constant([[1, 1, 1],
-                                               [1, -8, 1],
-                                               [1, 1, 1]], dtype=tf.float32),
-                                  shape=[3, 3, 1, 1], name='laplacian_kernel')
+    # laplacian_kernel = tf.reshape(tf.constant([[1, 1, 1],
+    #                                            [1, -8, 1],
+    #                                            [1, 1, 1]], dtype=tf.float32),
+    #                               shape=[3, 3, 1, 1], name='laplacian_kernel')
 
     gaussian_kernel = tf.reshape(tf.constant([[0.077847, 0.123317, 0.077847],
                                               [0.123317, 0.195346, 0.1233179],
@@ -1294,7 +1294,6 @@ def mrcnn_mask_edge_loss_graph(y_pred, y_true, edge_filters, smoothing_predictio
         "prewitt-x": prewitt_x_kernel,
         "prewitt-y": prewitt_y_kernel,
         
-        "laplace": laplacian_kernel
     }
 
 
