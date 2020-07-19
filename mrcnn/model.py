@@ -19,6 +19,7 @@ import os
 import random
 import re
 from collections import OrderedDict
+import h5py
 # Requires TensorFlow 1.3+ and Keras 2.0.8+.
 from distutils.version import LooseVersion
 
@@ -2283,7 +2284,7 @@ class MaskRCNN():
         some layers from loading.
         exlude: list of layer names to excluce
         """
-        import h5py
+        
         # Conditional import to support versions of Keras before 2.2
         # TODO: remove in about 6 months (end of 2018)
         try:
