@@ -2278,10 +2278,10 @@ class MaskRCNN():
         return checkpoint
 
     def load_weights(self, filepath, by_name=False, exclude=None):
-         """Modified version of the corresponding Keras function with
+        """Modified version of the correspoding Keras function with
         the addition of multi-GPU support and the ability to exclude
         some layers from loading.
-        exclude: list of layer names to exclude
+        exlude: list of layer names to excluce
         """
         import h5py
         # Conditional import to support versions of Keras before 2.2
@@ -2320,8 +2320,6 @@ class MaskRCNN():
 
         # Update the log directory
         self.set_log_dir(filepath)
-
-
     def get_imagenet_weights(self):
         """Downloads ImageNet trained weights from Keras.
         Returns path to weights file.
