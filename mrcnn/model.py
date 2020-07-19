@@ -1277,17 +1277,26 @@ def mrcnn_mask_edge_loss_graph(y_pred, y_true, edge_filters, smoothing_predictio
                                               [0.077847, 0.123317, 0.077847]], dtype=tf.float32),
                                  shape=[3, 3, 1, 1], name='gaussian_kernel')
 
+    # filter_map = {
+    #     "sobel-x": sobel_x_kernel,
+    #     "sobel-y": sobel_y_kernel,
+    #     "roberts-x": roberts_x_kernel,
+    #     "roberts-y": roberts_y_kernel,
+    #     "prewitt-x": prewitt_x_kernel,
+    #     "prewitt-y": prewitt_y_kernel,
+    #     "kayyali-senw": kayyali_senw_kernel,
+    #     "kayyali-nesw": kayyali_nesw_kernel,        
+    #     "laplace": laplacian_kernel
+    # }
+
     filter_map = {
-        "sobel-x": sobel_x_kernel,
-        "sobel-y": sobel_y_kernel,
-        "roberts-x": roberts_x_kernel,
-        "roberts-y": roberts_y_kernel,
+        
         "prewitt-x": prewitt_x_kernel,
         "prewitt-y": prewitt_y_kernel,
-        "kayyali-senw": kayyali_senw_kernel,
-        "kayyali-nesw": kayyali_nesw_kernel,        
+        
         "laplace": laplacian_kernel
     }
+
 
     lp_norm_map = {
         "l1": 1,
