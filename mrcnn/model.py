@@ -1331,6 +1331,7 @@ def mrcnn_mask_edge_loss_graph(y_pred, y_true, edge_filters, smoothing_predictio
     plt.imsave('dancing-spider-prewitt.png', newgradientImage, cmap='gray', format='png')
     plt.imshow(newgradientImage, cmap='gray')
     plt.show()
+    print(wanlee)
 
     # filter_map = {
     #     "sobel-x": sobel_x_kernel,
